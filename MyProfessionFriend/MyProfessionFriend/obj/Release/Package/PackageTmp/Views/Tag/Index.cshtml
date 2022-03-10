@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Tag>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <h2>Etiket Listesi</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Etiket</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TagId</td>
+                <td>@item.TagName</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
+@*@Html.Action("GroupPartial", "Group")*@

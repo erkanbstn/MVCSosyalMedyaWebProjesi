@@ -1,0 +1,24 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+
+                @foreach (var subitem in Model)
+                {
+
+                    <div class="post-comment">
+                        <div class="time-label">
+                            <span class="bg-success">@(((DateTime)subitem.CommentAdded).ToString("dd-MMM-yyy"))</span>
+                        </div>
+                        <img src="~/social_tema/images/users/user-11.jpg" alt="" class="profile-photo-sm" />
+                        <p><a href="#" class="profile-link">@subitem.People.PeopleName </a><i class="em em-laughing"></i> @subitem.CommentContent </p>
+                    </div>
+                }
+                @*<div class="post-comment">
+                        @Html.Partial("Comment", "PeopleMedia")
+                    </div>*@
+                <div class="post-comment">
+                    <img src="~/social_tema/images/users/user-1.jpg" alt="" class="profile-photo-sm" />
+                    <input type="text" class="form-control" placeholder="Post a comment">
+                </div>
+
+}

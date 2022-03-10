@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Activity>
+
+@{
+    ViewBag.Title = "MyActivities";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+<h1>My Activities</h1>
+<a href="/PeopleActivity/AllActivities/" class="btn btn-primary">All Activities</a>
+@foreach (var item in Model)
+{
+
+    <div class="post-content">
+        <div class="post-container">
+            <div class="post-detail">
+                <div class="user-info">
+                    <a class="btn btn-success btn-sm" href="/Activity/Members/@item.PeopleID">
+                        <i class="fas fa-pencil-alt">
+                        </i>
+                        Members
+                    </a>
+
+                    <a class="btn btn-info btn-sm" href="/PeopleActivity/EditActivity/@item.ActivityID">
+                        <i class="fas fa-pencil-alt">
+                        </i>
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="/PeopleActivity/DeleteActivity/@item.ActivityID">
+                        <i class="fas fa-trash">
+                        </i>
+                        Delete
+                    </a>
+                    <h5><a href="timeline.html" class="profile-link">@item.ActivityName</a> <span class="following">@item.ActivityDate</span></h5>
+
+
+                    @*<p class="text-muted">@item.ActivityAdded</p>*@
+                </div>
+                <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                </div>
+                <div class="line-divider"></div>
+                <div class="post-text">
+                    <p>@item.ActivityContent</p>
+                </div>
+                <div class="line-divider"></div>
+                
+            </div>
+        </div>
+    </div>
+}
+
+<a href="/PeopleActivity/NewActivity/" class="btn btn-primary"> Add New Activity</a>
+
+

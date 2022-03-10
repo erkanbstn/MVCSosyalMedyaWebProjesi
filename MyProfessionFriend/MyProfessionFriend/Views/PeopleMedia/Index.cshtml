@@ -1,0 +1,13 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Comment>
+
+<br />
+@foreach (var subitem in Model)
+{
+    <div class="post-comment">
+        <img src="~/social_tema/images/users/user-11.jpg" alt="" class="profile-photo-sm" />
+        <p><a href="/Timeline/PeopleAbout/@subitem.PeopleID" class="profile-link">@subitem.People.PeopleName </a><i class="em em-laughing"></i> @subitem.CommentContent </p>
+    </div>
+
+}

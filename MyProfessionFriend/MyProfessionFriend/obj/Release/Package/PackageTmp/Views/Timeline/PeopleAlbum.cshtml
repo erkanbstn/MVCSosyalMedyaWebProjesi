@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete
+@model List<Media>
+
+
+@{
+    ViewBag.Title = "PeopleAlbum";
+    Layout = "~/Views/Shared/_TimelineLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-7">
+
+    <!-- Photo Album
+    ================================================= -->
+    <ul class="album-photos">
+        
+        @foreach (var item in Model)
+        {
+
+            <li>
+                <div class="img-wrapper" data-toggle="modal" data-target=".photo-@item.MediaID">
+                    <img src="@item.MediaSelf" alt="photo" />
+                </div>
+                <div class="modal fade photo-@item.MediaID" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <img src="@item.MediaSelf" alt="photo" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+        </ul>
+</div>

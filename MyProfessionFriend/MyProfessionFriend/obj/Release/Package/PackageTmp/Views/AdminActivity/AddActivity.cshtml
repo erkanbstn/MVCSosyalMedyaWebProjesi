@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    ViewBag.Title = "AddActivity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Yeni Etkinlik Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddActivity", "AdminActivity", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Etkinlik Adı")
+    @Html.TextBoxFor(x => x.ActivityName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityName)
+    <br /><br />
+    @Html.Label("Açıklamayı yazınız")
+    @Html.TextAreaFor(x => x.ActivityContent, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityContent)
+    <br /><br />
+    @Html.Label("Etkinlik Tarihi")
+    @Html.TextBoxFor(x => x.ActivityDate, new { @class = "form-control", @type = "datetime-local"})
+    @Html.ValidationMessageFor(x => x.ActivityDate)
+    <br /><br />
+    @Html.Label("Durum")
+    @Html.TextAreaFor(x => x.ActivityStatus, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityStatus)
+    <br /><br />
+    <button>Kaydet</button>
+</div>
+}
+
+

@@ -1,0 +1,50 @@
+﻿@model EntityLayer.Concrete.People
+
+@{
+    ViewBag.Title = "EditPeople";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kişi Düzenleme Sayfası</h2>
+@using(Html.BeginForm("EditPeople", "People", FormMethod.Post))
+            {
+<div class="form-group">
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.PeopleID, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.PeopleName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleName)
+    <br /><br />
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(x => x.PeopleSurName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleSurName)
+    <br /><br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.PeopleMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleMail)
+    <br /><br />
+    @Html.Label("Doğum Tarihi")
+    @Html.TextBoxFor(x => x.PeopleBirth, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleBirth)
+    <br /><br />
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x => x.PeoplePass, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeoplePass)
+    <br /><br />
+    @Html.Label("Fotoğraf")
+    @Html.TextBoxFor(x => x.PeopleImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleImage)
+    <br /><br />
+    @Html.Label("Ünvan")
+    @Html.TextBoxFor(x => x.PeopleTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleTitle)
+    <br /><br />
+    @Html.Label("Hakkında")
+    @Html.TextBoxFor(x => x.PeopleAbout, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleAbout)
+    <br /><br />
+    <button class="btn btn-primary">Değişiklikleri Uygula</button>
+</div>
+            }

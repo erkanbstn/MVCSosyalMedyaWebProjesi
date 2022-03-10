@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Media
+
+@{
+    ViewBag.Title = "EditMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Bölüm Düzenle</h2>
+@using (Html.BeginForm("EditMedia", "Media", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.MediaID)
+    @Html.HiddenFor(x => x.MediaAdded)
+    @Html.Label("Görsel")
+    @Html.TextBoxFor(x => x.MediaSelf, new { @class = "form-control" })
+    <br />
+    @Html.Label("İçerik")
+    @Html.TextBoxFor(x => x.MediaContent, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ekleyen")
+    @Html.DropDownListFor(x => x.People.PeopleName, (List<SelectListItem>)ViewBag.vlp, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+
+
+

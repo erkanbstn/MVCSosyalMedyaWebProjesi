@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    ViewBag.Title = "NewActivity";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+<h2>Add New Activity</h2>
+<br />
+@using (Html.BeginForm("NewActivity", "PeopleActivity", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ActivityID)
+
+    @Html.Label("Activity Name")
+    @Html.TextBoxFor(x => x.ActivityName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityName)
+    <br /><br />
+    @Html.Label("Content")
+    @Html.TextBoxFor(x => x.ActivityContent, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ActivityContent)
+    <br /><br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.ActivityDate, new { @class = "form-control", @type = "datetime-local" })
+    @Html.ValidationMessageFor(x => x.ActivityDate)
+    <br /><br />
+
+    <button class="btn btn-primary">Add</button>
+</div>
+}
+
+

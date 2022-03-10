@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Yeni Etkinlik Ekleme Sayfası</h1>
+<br />
+@using(Html.BeginForm("AddActivity", "Activity", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("Etkinlik Adı")
+                    @Html.TextBoxFor(x=>x.ActivityName)
+                    @Html.ValidationMessageFor(x=>x.ActivityName)
+                    <br /><br />
+                    @Html.Label("Açıklamayı yazınız")
+                    @Html.TextBoxFor(x=>x.ActivityContent)
+                    @Html.ValidationMessageFor(x=>x.ActivityContent)
+                    <br /><br />
+                    <button>Kaydet</button>
+                </div>
+            }
+
+
+
+@*<form class="form-group" method="post">
+    <input type="text" placeholder="Etkinlik Adı" name="ActivityName" class="form-control" />
+    <br />
+    <input type="text" placeholder="Açıklama Giriniz" name="ActivityName" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>*@

@@ -1,0 +1,140 @@
+﻿@using EntityLayer.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Media>
+
+
+@{
+    ViewBag.Title = "AllMedia";
+    Layout = "~/Views/Shared/_NewsfeedLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="post-content">
+        <img src="@item.MediaSelf" alt="post-image" class="img-responsive post-image" />
+        <div class="post-container">
+            <img src="@item.People.PeopleImage" alt="user" class="profile-photo-md pull-left" />
+            <div class="post-detail">
+                <div class="user-info">
+                    <h5><a href="timeline.html" class="profile-link">@item.People.PeopleName</a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a photo about @item.MediaAdded</p>
+                </div>
+                <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                </div>
+                <div class="line-divider"></div>
+                <div class="post-text">
+                    <p>@item.MediaContent <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                </div>
+                <div class="line-divider"></div>
+                <div class="post-comment">
+                    <img src="~/social_tema/images/users/user-11.jpg" alt="" class="profile-photo-sm" />
+                    <p><a href="timeline.html" class="profile-link">Diana </a><i class="em em-laughing"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                </div>
+                <div class="post-comment">
+                    <img src="~/social_tema/images/users/user-4.jpg" alt="" class="profile-photo-sm" />
+                    <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                </div>
+                <div class="post-comment">
+                    <img src="~/social_tema/images/users/user-1.jpg" alt="" class="profile-photo-sm" />
+                    <input type="text" class="form-control" placeholder="Post a comment">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+    <!--<!DOCTYPE html>
+    <html>
+
+    <body class="hold-transition sidebar-mini">-->
+        <!-- Content Header (Page header) -->
+        <!--<section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+            </div>--><!-- /.container-fluid -->
+        <!--</section>-->
+        <!-- Main content -->
+        <!--<section class="content">-->
+            <!-- Default box -->
+            <!--<div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Media İşlemleri</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%">
+                                    Görsel
+                                </th>
+                                <th style="width: 8%" class="text-center">
+                                    İçerik
+                                </th>
+                                <th style="width: 8%" class="text-center">
+                                    Tarih
+                                </th>
+                                <th style="width: 20%">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <a>
+                                            <img src="@item.MediaSelf" width="250" />
+                                        </a>
+                                        <br />
+                                        <small>
+                                            @item.Tags
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                @item.MediaContent
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td class="project-state">
+                                        <span class="badge badge-success">@item.MediaAdded</span>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-info btn-sm" href="/PeopleMedia/EditMedia/@item.MediaID">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Bu Görsele Yorum Yap
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>-->
+                <!-- /.card-body -->
+            <!--</div>-->
+            <!-- /.card -->
+        <!--</section>
+    </body>
+</html>-->
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AllMedia", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link" }
+})

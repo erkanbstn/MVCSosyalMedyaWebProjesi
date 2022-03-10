@@ -1,0 +1,20 @@
+﻿@model EntityLayer.Concrete.People
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+
+
+
+
+<h2>My Profile</h2>
+
+<div class="mailbox-read-info">
+    <h5>Konu. @Html.DisplayFor(x => x.PeopleName)</h5>
+    <h6>
+        Mail: @Html.DisplayFor(x => x.PeopleMail)
+        <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
+    </h6>
+</div>

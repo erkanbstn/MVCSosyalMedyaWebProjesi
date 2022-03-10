@@ -1,0 +1,70 @@
+﻿@using EntityLayer.Concrete
+@model List<Activity>
+
+
+@{
+    ViewBag.Title = "AllActivities";
+    Layout = "~/Views/Shared/_NewsfeedLayout.cshtml";
+}
+
+
+<h1><p>ACTIVITIES</p></h1>
+
+@foreach (var item in Model)
+{
+    <div class="post-content">
+        <h5><p>@item.ActivityName</p></h5>
+
+
+        <div class="post-container">
+
+            <div class="post-text">
+                <p>@item.ActivityContent <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+            </div>
+
+            <img src="@item.People.PeopleImage" alt="user" class="profile-photo-md pull-left" />
+            <div class="post-detail">
+                <div class="user-info">
+                    <h5><a href="timeline.html" class="profile-link">@item.People.PeopleName</a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a activity about @item.ActivityDate</p>
+                </div>
+                <div class="reaction">
+                    <a href="/Activity/JoinActivity" class="btn btn-info">Join</a>
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                </div>
+                <div class="line-divider"></div>
+
+
+
+                <div class="line-divider"></div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <br />
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ActivityID</td>
+                <td>@item.ActivityName</td>
+                <td>@item.ActivityContent</td>
+                <td>@item.ActivityDate</td>
+                <td>@item.ActivityStatus</td>
+            </tr>
+        }
+    </table>*@
+<br />
+<a href="/Activity/AddActivity" class="btn btn-info">Yeni Etkinlik</a>
+

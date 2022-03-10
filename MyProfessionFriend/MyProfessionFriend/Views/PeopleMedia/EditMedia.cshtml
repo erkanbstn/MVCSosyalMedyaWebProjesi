@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Media
+
+@{
+    ViewBag.Title = "EditMedia";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+<h2>Edit Media</h2>
+<br />
+@using (Html.BeginForm("EditMedia", "PeopleMedia", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.MediaID)
+    @Html.HiddenFor(x => x.MediaAdded)
+    @Html.HiddenFor(x => x.PeopleID)
+    @Html.HiddenFor(x => x.MediaStatus)
+
+    @Html.Label("Görsel")
+    @Html.TextBoxFor(x => x.MediaSelf, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.MediaSelf)
+
+    <br />
+    @Html.Label("İçerik")
+    @Html.TextBoxFor(x => x.MediaContent, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.MediaContent)
+
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+
+

@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.People
+
+@{
+    ViewBag.Title = "AddPeople";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Kiş Ekle</h2>
+<br />
+@using(Html.BeginForm("AddPeople", "People", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.PeopleName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleName)
+    <br /><br />
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(x => x.PeopleSurName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleSurName)
+    <br /><br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.PeopleMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleMail)
+    <br /><br />
+    @Html.Label("Doğum Tarihi")
+    @Html.TextBoxFor(x => x.PeopleBirth, new { @class = "form-control", @type="datetime-local" })
+    @Html.ValidationMessageFor(x => x.PeopleBirth)
+    <br /><br />
+    @Html.Label("Şifre")
+    @Html.PasswordFor(x => x.PeoplePass, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeoplePass)
+    <br /><br />
+    @Html.Label("Fotoğraf")
+    @Html.TextBoxFor(x => x.PeopleImage, new { @class = "form-control", @type="file" })
+    @Html.ValidationMessageFor(x => x.PeopleImage)
+    <br /><br />
+    @Html.Label("Ünvan")
+    @Html.TextBoxFor(x => x.PeopleTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleTitle)
+    <br /><br />
+    @Html.Label("Hakkında")
+    @Html.TextAreaFor(x => x.PeopleAbout,5,10, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PeopleAbout)
+    <br /><br />
+    @Html.Label("Okuduğu Bölüm")
+    @Html.DropDownListFor(x => x.ScpartID, (List<SelectListItem>)ViewBag.vlsp, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ScpartID)
+    <br /><br />
+    <button class="btn btn-primary">Kaydet</button>
+</div>
+            }

@@ -1,0 +1,12 @@
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityLayer.dll.config
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityLayer.dll
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityLayer.pdb
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityFramework.dll
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityFramework.SqlServer.dll
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityFramework.xml
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\bin\Release\EntityFramework.SqlServer.xml
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\obj\Release\EntityLayer.csproj.AssemblyReference.cache
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\obj\Release\EntityLayer.csproj.CopyComplete
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\obj\Release\EntityLayer.dll
+E:\Programming\mart-media\social\MyProfessionFriend\EntityLayer\obj\Release\EntityLayer.pdb

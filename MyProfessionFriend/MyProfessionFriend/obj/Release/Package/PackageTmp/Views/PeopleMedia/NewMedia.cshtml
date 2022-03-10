@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Media
+
+@{
+    ViewBag.Title = "NewMedia";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+<h2>Add New Media</h2>
+<br />
+@using (Html.BeginForm("NewMedia", "PeopleMedia", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.MediaID, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.MediaAdded, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.MediaStatus, new { @class = "form-control" })
+
+
+    @Html.Label("Media")
+    @Html.TextBoxFor(x => x.MediaSelf, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.MediaSelf)
+    <br /><br />
+    @Html.Label("Content")
+    @Html.TextBoxFor(x => x.MediaContent, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.MediaContent)
+
+    <br /><br />
+    <button class="btn btn-primary">Save</button>
+</div>
+}
+
+

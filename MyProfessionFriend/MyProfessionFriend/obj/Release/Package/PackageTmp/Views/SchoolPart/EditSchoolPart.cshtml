@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.SchoolPart
+
+@{
+    ViewBag.Title = "EditSchoolPart";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Bölüm Düzenle</h2>
+@using(Html.BeginForm("EditSchoolPart", "SchoolPart", FormMethod.Post))
+            {
+<div class="form-group">
+    @Html.Label("Bölüm ID")
+    @Html.TextBoxFor(x => x.ScpartID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Bölüm Adı")
+    @Html.TextBoxFor(x => x.ScpartName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Okul")
+    @Html.DropDownListFor(x => x.SchoolID, (List<SelectListItem>)ViewBag.vls, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+            }
+

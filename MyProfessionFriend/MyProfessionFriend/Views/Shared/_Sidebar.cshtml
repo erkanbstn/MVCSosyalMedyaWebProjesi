@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.People
+
+<div id="sticky-sidebar">
+    <h4 class="grey">@Html.DisplayFor(x => x.PeopleName)'s Activity</h4>
+
+    <div class="feed-item">
+        <div class="live-activity">
+            <p><a href="#" class="profile-link">@Html.DisplayFor(x => x.PeopleName)</a> Commended on a Photo</p>
+            <p class="text-muted">5 mins ago</p>
+        </div>
+    </div>
+
+    <div class="feed-item">
+        <div class="live-activity">
+            <p><a href="#" class="profile-link">@Html.DisplayFor(x => x.PeopleName)</a> Has posted a photo</p>
+            <p class="text-muted">an hour ago</p>
+        </div>
+    </div>
+    <div class="feed-item">
+        <div class="live-activity">
+            <p><a href="#" class="profile-link">@Html.DisplayFor(x => x.PeopleName)</a> Liked her friend's post</p>
+            <p class="text-muted">4 hours ago</p>
+        </div>
+    </div>
+    <div class="feed-item">
+        <div class="live-activity">
+            <p><a href="#" class="profile-link">@Html.DisplayFor(x => x.PeopleName)</a> has shared an album</p>
+            <p class="text-muted">a day ago</p>
+        </div>
+    </div>
+</div>
+
+

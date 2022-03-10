@@ -1,0 +1,119 @@
+﻿@using EntityLayer.Concrete
+@model List<Media>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Media İşlemleri</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Görsel
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Avatar
+                            </th>
+                            <th style="width: 20%">
+                                Yükleyen Kişi
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Tarih
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        { 
+                        <tr>
+                            <td>
+                                @item.MediaID
+                            </td>
+                            <td>
+                                <a>
+                                    @item.MediaSelf
+                                </a>
+                                <br />
+                                <small>
+                                    @item.Tags
+                                </small>
+                            </td>
+                            <td>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="~/Admin/dist/img/avatar.png">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-success">@item.People.PeopleName</span>
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-success">@item.MediaAdded</span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="/People/PeopleBySchoolPart/@item.MediaID">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    Üyeler
+                                </a>
+                                <a class="btn btn-info btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                         }
+                        </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+</body>
+</html>
+
+<a href="Media/AddMedia/" class="btn btn-primary"> Yeni Media Girişi</a>
+

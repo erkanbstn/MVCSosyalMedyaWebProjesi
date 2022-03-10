@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewBag.Title = "CommentByMedia";
+    Layout = "~/Views/Shared/_NewsFeedLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+
+    <div class="post-content">
+        <a href="/PeopleMedia/AllMedia/@item.MediaID">
+            <img src="@item.Media.MediaSelf" alt="post-image" class="img-responsive post-image" />
+        </a>
+        <div class="post-container">
+            <img src="@item.Media.People.PeopleImage" alt="user" class="profile-photo-md pull-left" />
+            <div class="post-detail">
+                <div class="user-info">
+                    <h5><a href="timeline.html" class="profile-link">@item.Media.People.PeopleName</a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a photo about @item.Media.MediaAdded</p>
+                </div>
+                <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                </div>
+                <div class="line-divider"></div>
+                <div class="post-text">
+                    <p>@item.Media.MediaContent <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                </div>
+                <div class="line-divider"></div>
+                @foreach (var subitem in Model)
+                {
+
+                    <div class="post-comment">
+                        <div class="time-label">
+                            <span class="bg-success">@(((DateTime)subitem.CommentAdded).ToString("dd-MMM-yyy"))</span>
+                        </div>
+                        <img src="~/social_tema/images/users/user-11.jpg" alt="" class="profile-photo-sm" />
+                        <p><a href="#" class="profile-link">@subitem.People.PeopleName </a><i class="em em-laughing"></i> @subitem.CommentContent </p>
+                    </div>
+                }
+                    @*<div class="post-comment">
+                @Html.Partial("Comment", "PeopleMedia")
+            </div>*@
+                    <div class="post-comment">
+                        <img src="~/social_tema/images/users/user-1.jpg" alt="" class="profile-photo-sm" />
+                        <input type="text" class="form-control" placeholder="Post a comment">
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+}

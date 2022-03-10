@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Activity
+
+@{
+    ViewBag.Title = "EditActivity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Etkinlik Güncelleme Sayfası</h2>
+@using(Html.BeginForm("EditActivity", "AdminActivity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+<div class="form-check-group">
+    @Html.Label("Etkinlik ID")
+    @Html.TextBoxFor(x => x.ActivityID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Adı")
+    @Html.TextBoxFor(x => x.ActivityName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Açıklaması")
+    @Html.TextAreaFor(x => x.ActivityContent, new { @class = "form-control" })
+    <br />
+    @Html.Label("Etkinlik Tarihi")
+    @Html.TextBoxFor(x => x.ActivityDate, new { @class = "form-control", @type = "datetime-local" })
+    <br />
+    @Html.Label("Durum")
+    @Html.TextAreaFor(x => x.ActivityStatus, new { @class = "form-control" })
+
+    <br /><br />
+    <button class="btn btn-success">Güncelle</button>
+
+</div>
+            }

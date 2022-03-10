@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model List<Group>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <h2>Group Veri Listesi</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Grup Adı</th>
+            <th>Aktif Yap</th>
+            <th>Pasif Yap</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GroupID</td>
+                <td>@item.GroupName</td>
+                <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
+                <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
+            </tr>
+        }
+    </table>
+
+    </body></html>
+    @Html.Action("GroupPartial", "Group")

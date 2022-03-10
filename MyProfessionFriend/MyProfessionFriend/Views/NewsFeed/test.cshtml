@@ -1,0 +1,34 @@
+﻿@model MyProfessionFriend.Models.ViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                @foreach (var item in Model.ViewComment)
+                {
+                    <td>@item.CommentID</td>
+                }
+            </tr>
+
+            <tr>
+                @foreach (var item in Model.ViewMedia)
+                {
+                    <td>@item.MediaID</td>
+                }
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>

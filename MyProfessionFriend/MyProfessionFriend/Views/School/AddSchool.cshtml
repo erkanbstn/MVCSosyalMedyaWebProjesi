@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.School
+@{
+    ViewBag.Title = "AddSchool";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Okul Ekleme</h2>
+<br />
+@using (Html.BeginForm("AddSchool", "School", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Okul Adı")
+        @Html.TextBoxFor(x => x.SchoolName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SchoolName)
+        <br /><br />
+        @Html.Label("Adres")
+        @Html.TextBoxFor(x => x.SchoolAdress, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SchoolAdress)
+        <br /><br />
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.SchoolTel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SchoolTel)
+        <br /><br />
+        
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+}
